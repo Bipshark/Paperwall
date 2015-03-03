@@ -1,12 +1,10 @@
 /** @jsx React.DOM */
-var React = require("react");
+var React = require('react');
 
 var Header = React.createClass({
     render: function() {
         return (
-            <div>
-                <header id="header">I am a header</header>
-            </div>
+            <header id="header">Paperwall<span className="beta">BETA</span></header>
         );
     }
 });

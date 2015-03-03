@@ -1,8 +1,8 @@
 /** @jsx React.DOM */
-var React = require("react"),
+var React = require('react'),
     Router = require('react-router-component'),
-    Header = require("./Header"),
-    Taco = require("./Taco");
+    Header = require('./Header'),
+    Main = require('./Main');
 
 var Locations = Router.Locations;
 var Location = Router.Location;
@@ -10,11 +10,13 @@ var Location = Router.Location;
 var App = React.createClass({
     render: function() {
         return (
-            <Locations path={this.props.path}>
-            <Location path="/" handler={Taco} />
-            <Location path="/header" handler={Header} />
-            </Locations>
-            );
+            <div>
+                <Header />
+                <Locations path={this.props.path} id="content">
+                    <Location path="/" handler={Main} />
+                </Locations>
+            </div>
+        );
     }
 });
 
