@@ -5,7 +5,7 @@ var Header = React.createClass({
 	render: function() {
 		return (
 			<div>
-				<header id="header">I am a</header>
+				<header id="header">I am a header</header>
 			</div>
 		);
 	}
