@@ -1,15 +1,15 @@
 var gulp = require('gulp'),
-	watch = require('gulp-watch'),
-	sass = require('gulp-sass'),
-	livereload = require('gulp-livereload'),
-	concat = require('gulp-concat'),
-	reactify = require('reactify'),
-	browserify = require('browserify'),
+    watch = require('gulp-watch'),
+    sass = require('gulp-sass'),
+    livereload = require('gulp-livereload'),
+    concat = require('gulp-concat'),
+    reactify = require('reactify'),
+    browserify = require('browserify'),
     source = require('vinyl-source-stream'),
-	server = require('./server');
+    server = require('./server');
 
 gulp.task('server', function() {
-	server.listen(4000);
+    server.listen(4000);
     console.log("Started server on http://localhost:4000");
 });
 
@@ -25,18 +25,18 @@ gulp.task('react', function() {
     console.log("Reacting...");
     
     browserify('./app/components/main.js')
-    	.transform(reactify)
-    	.bundle()
-    	.pipe(source('bundle.js'))
+        .transform(reactify)
+        .bundle()
+        .pipe(source('bundle.js'))
         .pipe(gulp.dest('./public/js'))
         .pipe(livereload());
 });
 
 gulp.task('watch', function() {
-	livereload.listen();
+    livereload.listen();
 
-	gulp.watch('./scss/*.scss', ['sass']);
-	gulp.watch('./app/components/*.js', ['react']);
+    gulp.watch('./scss/*.scss', ['sass']);
+    gulp.watch('./app/components/*.js', ['react']);
 });
 
 gulp.task('default', ['server', 'sass', 'react', 'watch'], function() {
