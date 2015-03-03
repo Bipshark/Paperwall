@@ -24,7 +24,7 @@ gulp.task('sass', function() {
 gulp.task('react', function() {
     console.log("Reacting...");
     
-    browserify('./app/components/main.js')
+    browserify('./app/main.js')
         .transform(reactify)
         .bundle()
         .pipe(source('bundle.js'))
@@ -40,5 +40,9 @@ gulp.task('watch', function() {
 });
 
 gulp.task('default', ['server', 'sass', 'react', 'watch'], function() {
+
+});
+
+gulp.task('deploy', ['sass', 'react'], function() {
 
 });
